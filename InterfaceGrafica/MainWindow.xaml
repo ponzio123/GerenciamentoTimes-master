@@ -1,0 +1,58 @@
+﻿<Window x:Class="InterfaceGrafica.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InterfaceGrafica"
+        mc:Ignorable="d"
+        Title="SGT - Sistemas de Gerenciamento de Times" 
+        Height="450" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="Arquivo">
+                <MenuItem Header="Sair"/>
+            </MenuItem>
+            <MenuItem Header="Gerenciamento">
+                <MenuItem
+                    x:Name="MenuGerenciarTime"
+                    Click="MenuItem_Click"
+                    Header="Gerenciar Times"/>
+                <MenuItem 
+                    x:Name="MenuNovoTime"
+                    Click="MenuItem_Click"
+                    Header="Novo Time"/>
+                <MenuItem
+                    x:Name="MenuGerenciarJogador"
+                    Click="MenuItem_Click"
+                    Header="Gerenciar Jogadores"/>
+                <MenuItem 
+                    x:Name="MenuNovoJogador"
+                    Click="MenuItem_Click"
+                    Header="Novo Jogador"/>
+            </MenuItem>
+            <MenuItem Header="Relatórios">
+                <MenuItem Header="Times e Jogadores"
+                          x:Name="Relatorio_TimesJogadores"
+                          Click="MenuItem_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <TextBox
+            x:Name="TextBox1"
+            Grid.Row="2"
+            Background="{Binding 
+            RelativeSource={RelativeSource Self},
+            Path=Text}"
+            ></TextBox>
+        <TextBox
+            x:Name="TextBox2"
+            Grid.Row="1"
+            Text="{Binding Text, ElementName=TextBox1, Mode=OneWay}">
+            
+        </TextBox>
+    </Grid>
+</Window>
